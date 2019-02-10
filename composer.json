@@ -1,0 +1,15 @@
+{
+    "name": "arjeta/oop_task",
+    "authors": [
+        {
+            "name": "Arjeta Avllaj",
+            "email": "arjeta.avllaj14@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Arjeta\\":"src/"
+        }
+    }
+}
