@@ -10,11 +10,11 @@ namespace Arjeta;
 
 abstract class Character
 {
-    private $name;
-    private $health;
-    private $maxHealth;
-    private $attack;
-    private $range;
+    protected $name;
+    protected $health;
+    protected $maxHealth;
+    protected $attack;
+    protected $range;
 
     /**
      * Character constructor.
@@ -39,6 +39,20 @@ abstract class Character
     {
         echo "Player ". "\"$this->name\" is created as " .str_replace(__NAMESPACE__ . '\\', '', get_class($this)) .
             "\nHealth is: " .$this->health. "\t Attack is: " .number_format($this->attack,2). "\n";
+    }
+
+    /**
+     * @param Character $me
+     * @param boolean $return
+     * @return string|boolean
+     */
+    public static function printInlineStats(Character $me, $return = true)
+    {
+        if ($return)
+            return "Health: " .$me->health. "\t Attack: " .number_format($me->attack,2);
+        else
+            echo "Health: " .$me->health. "\t Attack: " .number_format($me->attack,2);
+        return false;
     }
 
     /**

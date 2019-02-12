@@ -1,15 +1,18 @@
 {
-    "name": "arjeta/oop_task",
+    "name": "arjeta/rpg-php",
     "authors": [
         {
             "name": "Arjeta Avllaj",
             "email": "arjeta.avllaj14@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+      "ext-readline": "*"
+    },
     "autoload": {
         "psr-4": {
             "Arjeta\\":"src/"
         }
     }
+
 }

@@ -11,7 +11,4 @@ namespace Arjeta;
 
 class Wizard extends Character
 {
-    public function __construct()
-    {
-    }
 }

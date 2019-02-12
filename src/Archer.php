@@ -11,5 +11,9 @@ namespace Arjeta;
 
 class Archer extends Character
 {
-
+    public function __construct($name = "Unknown player", $maxHealth = 120, $health = 120, $attack = 6.00)
+    {
+        parent::__construct($name, $maxHealth, $health, $attack);
+    }
 }
+
