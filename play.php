@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 /**
  * Created by PhpStorm.
@@ -9,6 +10,7 @@
 include 'vendor/autoload.php';
 
 use Arjeta\Archer;
+use Arjeta\Enemy\Orc;
 use Arjeta\Fighter;
 use Arjeta\Util\Console;
 use Arjeta\Wizard;
@@ -64,4 +66,24 @@ while (!($gotPlayerName == true && $gotPlayerType == true)) {
     }
 }
 
-echo Console::green("Ready to play game\n");
+//echo "███████████";
+echo "[███████████  ]\n";
+$player->printInfo();
+
+echo Console::green("\nReady to play game\n\n");
+
+$enemy = new Orc();
+
+echo "Player: ".$player->printStats()."\n";
+echo "Enemy: ".$enemy->printInlineStats()."\n";
+
+
+$player->attackEnemy($enemy);
+$player->attackEnemy($enemy);
+$player->attackEnemy($enemy);
+
+$enemy->attack($player);
+$enemy->attack($player);
+
+echo "Player: ".$player->printStats()."\n";
+echo "Enemy: ".$enemy->printInlineStats()."\n";

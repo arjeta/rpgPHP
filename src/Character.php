@@ -8,6 +8,9 @@
 
 namespace Arjeta;
 
+use Arjeta\Enemy\EnemyInterface;
+use Arjeta\Util\Console;
+
 abstract class Character
 {
     protected $name;
@@ -29,7 +32,6 @@ abstract class Character
         $this->maxHealth = $maxHealth;
         $this->health = $health;
         $this->attack = $attack;
-        $this->printInfo();
     }
 
     /**
@@ -52,6 +54,19 @@ abstract class Character
             return "Health: " .$me->health. "\t Attack: " .number_format($me->attack,2);
         else
             echo "Health: " .$me->health. "\t Attack: " .number_format($me->attack,2);
+        return false;
+    }
+
+    /**
+     * @param boolean $return
+     * @return string|boolean
+     */
+    public function printStats($return = true)
+    {
+        if ($return)
+            return "Health: " .$this->health. "\t Attack: " .number_format($this->attack,2);
+        else
+            echo "Health: " .$this->health. "\t Attack: " .number_format($this->attack,2);
         return false;
     }
 
@@ -133,5 +148,16 @@ abstract class Character
     public function setMaxHealth($maxHealth)
     {
         $this->maxHealth = $maxHealth;
+    }
+
+    /**
+     * @param EnemyInterface $enemy
+     * @param bool $alert
+     */
+    public function attackEnemy(EnemyInterface $enemy,$alert = true)
+    {
+        if ($alert)
+            echo Console::blue($this->getName(). " attacked the ".$enemy->getEnemyType()."\n");
+        $enemy->setHealth($enemy->getHealth()-$this->attack);
     }
 }
